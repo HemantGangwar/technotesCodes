@@ -1,0 +1,35 @@
+1. Creating a basic script importing time module
+
+#!/usr/bin/env python3
+import time
+
+2. Checking the localtime in struct_time format
+
+print(x)
+print(f"Fetching the day of month: {x.tm_mday}, The year is: {x[0]}")
+
+3. Validating the same time in GMT as well
+
+y = time.gmtime()
+print(y)
+
+4. Checking current time in Human readable format
+
+print(time.ctime())
+
+5. Now making time in seconds since epoch
+
+print(f"The time in sec provided by mktime till now is given as: {time.mktime(x)} ")
+
+6. Checking the process time and holding the script for 10 sec
+
+time.sleep(10)
+print(time.process_time())
+
+7. Using time in any exisiting script
+
+start_time = time.localtime()
+...
+stop_time = time.localtime()
+...
+difference = time.mktime(stop_time) - time.mktime(start_time) 

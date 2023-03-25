@@ -1,0 +1,79 @@
+1. A general function example
+
+#!/usr/bin/env python
+
+def my_custom_func():
+    """ This is just for testing a function """
+    print('')
+    print('*' * 30)
+    print('Welcome Mate, we are learning Python together.')
+    print('*' * 30)
+    print('')
+
+response = input('Do you want to proceed with testing it (y/n) ? ').lower()
+if ( response == 'y'):
+    my_custom_func()
+
+
+2. Reading it's doc string
+
+else:
+    help(my_custom_func)
+
+OR
+
+print(my_custom_func.__doc__)
+
+3. Validating any response received from a function
+
+print(my_custom_func())
+
+4. Testing an argument to make it more usable
+
+def my_custom_func(welcome_message):
+    """ This is just for testing a function """
+    print('')
+    print('*' * 30)
+    print(welcome_message)
+    print('*' * 30)
+    print('')
+
+my_custom_func('Hi There! Now we are testing argument')
+
+5. Providing arguments on the fly
+
+def my_custom_func(welcome_message):
+    """ This is just for testing a function """
+    print('')
+    print('*' * 30)
+    print(welcome_message)
+    print('*' * 30)
+    print('')
+
+response = input('Enter the custom string ? ').capitalize()
+my_custom_func(response)
+
+6. Mixing keyword and positional arguments
+
+#!/usr/bin/env python
+import os, subprocess
+
+def my_custom_func(custom_user_name,custom_user_password):
+    """ This is just for testing a function """
+    useradd_cmd = f"/usr/sbin/useradd {custom_user_name} 2> /dev/null"
+    userpass_cmd = f"/usr/bin/echo {custom_user_name}:{custom_user_password} | /usr/sbin/chpasswd"
+    useraddition = subprocess.run(useradd_cmd, shell=True)
+    subprocess.run(userpass_cmd, shell=True)
+    return useraddition
+    if ( useraddition != 0 ):
+        raise ValueError
+
+response = input("Enter username you want to add ? ")
+try:
+    useradditioncode = my_custom_func(response,custom_user_password='redhat')
+    if ( useradditioncode.returncode != 0 ):
+        raise ValueError
+except:
+    id_cmd = f"id -a {response}"
+    x = os.popen(id_cmd)
+    print('Issues while adding user, check if not already created!', x.read())

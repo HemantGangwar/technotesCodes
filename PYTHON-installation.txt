@@ -1,0 +1,19 @@
+Installation via RPM
+-----------------------
+# yum search python3 (For RHEL8 can replace yum with dnf)
+# yum install python3
+To initiate Python REPL
+# python3
+# alternatives --set python /usr/bin/python3
+
+Installation by tar file
+----------------------------
+
+# yum groupinstall -y "development tools" 
+# cd /usr/src 
+# yum -y install openssl wget
+# wget https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz
+# tar xf Python-3.10.5.tgz 
+# cd Python-3.10.5
+# ./configure --enable-optimizations 
+# make altinstall
